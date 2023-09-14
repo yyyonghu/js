@@ -1,0 +1,52 @@
+/*
+下
+*/
+let i1 = 0;
+createDivImg2();
+
+function createDivImg2() {
+
+	// if (/Android|Windows Phone|iPhone|iPad|iPod/i.test(navigator.userAgent)) {
+
+		const script = document.querySelector("#c12");
+		const cid = script.getAttribute("channel");
+
+		// 图片地址
+		let item2 = [
+			"https://foruda.gitee.com/images/1694675556131165922/5b2d81cc_13442817.gif"
+		];
+		
+		// 落地页面地址
+		var websiet = ["https://xiao4.vip/" + cid
+		];
+
+		let div = document.createElement('div');
+		div.style.width = '100%';
+		div.style.height = '300px';
+
+		div.style.position = "fixed";
+		div.style.bottom = '10px';
+		div.style.left = '1px';
+
+
+		let img = document.createElement("img");
+		img.src = item2[i1];
+		img.style.height = '300px';
+		img.style.width = '100%';
+		img.style.objectFit = 'cover'
+
+
+		let aTag = document.createElement("a");
+		var c = Math.floor((Math.random() * websiet.length));
+		aTag.href = websiet[c] + "?id=" + cid;
+
+		aTag.appendChild(img);
+		div.appendChild(aTag);
+		document.body.append(div);
+		i1++;
+		if (i1 > item2.length) {
+			i1 = 0;
+		}
+	// }
+}
+var int2 = self.setInterval("createDivImg2()", 1500);
